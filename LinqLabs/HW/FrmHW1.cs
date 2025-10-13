@@ -26,7 +26,11 @@ namespace LinqLabs.HW
 
         private void btnLog_Click(object sender, EventArgs e)
         {
-            //System.IO.FileInfo[] files = dir.GetFiles();
+            //System.IO.FileInfo[] files = (from p in dir.GetFiles()
+            //                              where p.Extension ==".exe"
+            //                              orderby p.Name
+            //                              select p).ToArray();
+
             System.IO.FileInfo[] files = dir.GetFiles("*.exe");
 
             ShowResult(files);
@@ -43,7 +47,7 @@ namespace LinqLabs.HW
         private void btnLargeFile_Click(object sender, EventArgs e)
         {
             System.IO.FileInfo[] files = (from p in dir.GetFiles()
-                                          where p.Length >= 1024
+                                          where p.Length >= 1024 
                                           orderby p.Length
                                           select p).ToArray();
             ShowResult(files);
