@@ -62,6 +62,8 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             this.groupBox5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -252,6 +254,7 @@
             this.button3.TabIndex = 48;
             this.button3.Text = "從 Linq 實作 看 C# 3.0 ";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button39
             // 
@@ -514,6 +517,8 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.button2);
+            this.groupBox4.Controls.Add(this.button10);
+            this.groupBox4.Controls.Add(this.button9);
             this.groupBox4.Controls.Add(this.buttonX);
             this.groupBox4.Location = new System.Drawing.Point(77, 301);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(5);
@@ -536,6 +541,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "Delegate 委派演進";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
@@ -545,6 +551,30 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1014, 18);
             this.label1.TabIndex = 46;
+            // 
+            // button9
+            // 
+            this.button9.AutoSize = true;
+            this.button9.Location = new System.Drawing.Point(604, 39);
+            this.button9.Margin = new System.Windows.Forms.Padding(5);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(159, 51);
+            this.button9.TabIndex = 51;
+            this.button9.Text = "bool Test(int)";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button10
+            // 
+            this.button10.AutoSize = true;
+            this.button10.Location = new System.Drawing.Point(773, 39);
+            this.button10.Margin = new System.Windows.Forms.Padding(5);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(159, 51);
+            this.button10.TabIndex = 51;
+            this.button10.Text = "MyWhere(..)";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // FrmLangForLINQ
             // 
@@ -625,5 +655,7 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
     }
 }
