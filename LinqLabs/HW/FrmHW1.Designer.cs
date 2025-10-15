@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.btnLog = new System.Windows.Forms.Button();
-            this.btnCreate = new System.Windows.Forms.Button();
             this.btnLargeFile = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
+            this.btnLog = new System.Windows.Forms.Button();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblMain = new System.Windows.Forms.Label();
             this.dataGridViewMain = new System.Windows.Forms.DataGridView();
+            this.lblMain = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.lblDetail = new System.Windows.Forms.Label();
             this.dataGridViewDetail = new System.Windows.Forms.DataGridView();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -62,6 +63,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.comboBox1);
             this.splitContainer1.Panel1.Controls.Add(this.btnLargeFile);
             this.splitContainer1.Panel1.Controls.Add(this.btnCreate);
             this.splitContainer1.Panel1.Controls.Add(this.btnLog);
@@ -72,6 +74,36 @@
             this.splitContainer1.Size = new System.Drawing.Size(1006, 721);
             this.splitContainer1.SplitterDistance = 194;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // btnLargeFile
+            // 
+            this.btnLargeFile.Location = new System.Drawing.Point(11, 187);
+            this.btnLargeFile.Name = "btnLargeFile";
+            this.btnLargeFile.Size = new System.Drawing.Size(166, 82);
+            this.btnLargeFile.TabIndex = 0;
+            this.btnLargeFile.Text = "FileInfo >=1KB";
+            this.btnLargeFile.UseVisualStyleBackColor = true;
+            this.btnLargeFile.Click += new System.EventHandler(this.btnLargeFile_Click);
+            // 
+            // btnCreate
+            // 
+            this.btnCreate.Location = new System.Drawing.Point(11, 99);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(166, 82);
+            this.btnCreate.TabIndex = 0;
+            this.btnCreate.Text = "FileInfo 2025Created";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
+            // 
+            // btnLog
+            // 
+            this.btnLog.Location = new System.Drawing.Point(11, 11);
+            this.btnLog.Name = "btnLog";
+            this.btnLog.Size = new System.Drawing.Size(166, 82);
+            this.btnLog.TabIndex = 0;
+            this.btnLog.Text = "FileInfo exe檔";
+            this.btnLog.UseVisualStyleBackColor = true;
+            this.btnLog.Click += new System.EventHandler(this.btnLog_Click);
             // 
             // splitContainer2
             // 
@@ -92,36 +124,6 @@
             this.splitContainer2.SplitterDistance = 360;
             this.splitContainer2.TabIndex = 0;
             // 
-            // btnLog
-            // 
-            this.btnLog.Location = new System.Drawing.Point(11, 11);
-            this.btnLog.Name = "btnLog";
-            this.btnLog.Size = new System.Drawing.Size(166, 82);
-            this.btnLog.TabIndex = 0;
-            this.btnLog.Text = "FileInfo exe檔";
-            this.btnLog.UseVisualStyleBackColor = true;
-            this.btnLog.Click += new System.EventHandler(this.btnLog_Click);
-            // 
-            // btnCreate
-            // 
-            this.btnCreate.Location = new System.Drawing.Point(11, 99);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(166, 82);
-            this.btnCreate.TabIndex = 0;
-            this.btnCreate.Text = "FileInfo 2025Created";
-            this.btnCreate.UseVisualStyleBackColor = true;
-            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
-            // 
-            // btnLargeFile
-            // 
-            this.btnLargeFile.Location = new System.Drawing.Point(11, 187);
-            this.btnLargeFile.Name = "btnLargeFile";
-            this.btnLargeFile.Size = new System.Drawing.Size(166, 82);
-            this.btnLargeFile.TabIndex = 0;
-            this.btnLargeFile.Text = "FileInfo >=1KB";
-            this.btnLargeFile.UseVisualStyleBackColor = true;
-            this.btnLargeFile.Click += new System.EventHandler(this.btnLargeFile_Click);
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
@@ -136,17 +138,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(795, 359);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // lblMain
-            // 
-            this.lblMain.AutoSize = true;
-            this.lblMain.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblMain.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lblMain.Location = new System.Drawing.Point(3, 0);
-            this.lblMain.Name = "lblMain";
-            this.lblMain.Size = new System.Drawing.Size(789, 38);
-            this.lblMain.TabIndex = 0;
-            // 
             // dataGridViewMain
             // 
             this.dataGridViewMain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -157,6 +148,17 @@
             this.dataGridViewMain.RowTemplate.Height = 27;
             this.dataGridViewMain.Size = new System.Drawing.Size(789, 315);
             this.dataGridViewMain.TabIndex = 1;
+            // 
+            // lblMain
+            // 
+            this.lblMain.AutoSize = true;
+            this.lblMain.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblMain.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblMain.Location = new System.Drawing.Point(3, 0);
+            this.lblMain.Name = "lblMain";
+            this.lblMain.Size = new System.Drawing.Size(789, 38);
+            this.lblMain.TabIndex = 0;
             // 
             // tableLayoutPanel2
             // 
@@ -194,14 +196,23 @@
             this.dataGridViewDetail.Size = new System.Drawing.Size(797, 308);
             this.dataGridViewDetail.TabIndex = 1;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(12, 276);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 26);
+            this.comboBox1.TabIndex = 1;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // FrmHW1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1006, 721);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("微軟正黑體", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmHW1";
             this.Text = "FrmHW1";
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -235,5 +246,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label lblDetail;
         private System.Windows.Forms.DataGridView dataGridViewDetail;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
