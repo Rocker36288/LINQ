@@ -95,6 +95,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="Sales_by_Year" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="Sales by Year">
+          <Parameter Name="Beginning_Date" Type="datetime" Mode="In" />
+          <Parameter Name="Ending_Date" Type="datetime" Mode="In" />
+        </Function>
         <EntityContainer Name="NorthwindModelStoreContainer">
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order Details" EntityType="Self.Order Details" Schema="dbo" store:Type="Tables" />
@@ -173,6 +177,10 @@
             <End Role="Product" EntitySet="Products" />
             <End Role="Order_Detail" EntitySet="Order_Details" />
           </AssociationSet>
+          <FunctionImport Name="Sales_by_Year" ReturnType="Collection(NorthwindModel.Sales_by_Year_Result)">
+            <Parameter Name="Beginning_Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Ending_Date" Mode="In" Type="DateTime" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="Order_Detail">
           <Key>
@@ -231,6 +239,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="Sales_by_Year_Result">
+          <Property Type="DateTime" Name="ShippedDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="OrderID" Nullable="false" />
+          <Property Type="Decimal" Name="Subtotal" Nullable="true" Precision="19" />
+          <Property Type="String" Name="Year" Nullable="true" MaxLength="30" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -294,6 +308,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Sales_by_Year" FunctionName="NorthwindModel.Store.Sales_by_Year">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NorthwindModel.Sales_by_Year_Result">
+                <ScalarProperty Name="ShippedDate" ColumnName="ShippedDate" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
