@@ -115,6 +115,30 @@
     <Compile Include="HW\FrmHW4.Designer.cs">
       <DependentUpon>FrmHW4.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewFolder1\AWModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AWModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NewFolder1\AWModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AWModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NewFolder1\AWModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AWModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="NewFolder1\Product.cs">
+      <DependentUpon>AWModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NewFolder1\ProductPhoto.cs">
+      <DependentUpon>AWModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NewFolder1\ProductProductPhoto.cs">
+      <DependentUpon>AWModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="NWDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -186,6 +210,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EntityDeploy Include="NewFolder1\AWModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AWModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="NewFolder1\AWModel.edmx.diagram">
+      <DependentUpon>AWModel.edmx</DependentUpon>
+    </None>
     <None Include="NWDataSet.xsc">
       <DependentUpon>NWDataSet.xsd</DependentUpon>
     </None>
@@ -219,6 +250,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="NewFolder1\AWModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AWModel.edmx</DependentUpon>
+      <LastGenOutput>AWModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="NewFolder1\AWModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AWModel.edmx</DependentUpon>
+      <LastGenOutput>AWModel.cs</LastGenOutput>
+    </Content>
     <Content Include="NWModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>NWModel.Context.cs</LastGenOutput>
