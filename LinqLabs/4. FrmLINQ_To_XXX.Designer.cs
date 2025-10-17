@@ -35,8 +35,10 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -46,6 +48,7 @@
             this.button8 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
@@ -60,11 +63,10 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.button12 = new System.Windows.Forms.Button();
             this.nwDataSet1 = new LinqLabs.NWDataSet();
             this.ordersTableAdapter1 = new LinqLabs.NWDataSetTableAdapters.OrdersTableAdapter();
+            this.productsTableAdapter1 = new LinqLabs.NWDataSetTableAdapters.ProductsTableAdapter();
+            this.categoriesTableAdapter1 = new LinqLabs.NWDataSetTableAdapters.CategoriesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
@@ -79,6 +81,7 @@
             this.splitContainer5.Panel1.SuspendLayout();
             this.splitContainer5.Panel2.SuspendLayout();
             this.splitContainer5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -92,7 +95,6 @@
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nwDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -140,6 +142,16 @@
             this.splitContainer4.SplitterWidth = 7;
             this.splitContainer4.TabIndex = 1;
             // 
+            // listView1
+            // 
+            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(0, 0);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(811, 131);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
             // splitContainer3
             // 
             this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -178,6 +190,27 @@
             this.splitContainer5.SplitterDistance = 562;
             this.splitContainer5.SplitterWidth = 7;
             this.splitContainer5.TabIndex = 3;
+            // 
+            // chart1
+            // 
+            chartArea5.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea5);
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend5.Name = "Legend1";
+            this.chart1.Legends.Add(legend5);
+            this.chart1.Location = new System.Drawing.Point(0, 0);
+            this.chart1.Name = "chart1";
+            series9.ChartArea = "ChartArea1";
+            series9.Legend = "Legend1";
+            series9.Name = "Count";
+            series10.ChartArea = "ChartArea1";
+            series10.Legend = "Legend1";
+            series10.Name = "Avg";
+            this.chart1.Series.Add(series9);
+            this.chart1.Series.Add(series10);
+            this.chart1.Size = new System.Drawing.Size(562, 528);
+            this.chart1.TabIndex = 0;
+            this.chart1.Text = "chart1";
             // 
             // treeView1
             // 
@@ -242,6 +275,7 @@
             this.button15.TabIndex = 111;
             this.button15.Text = " Linq Operator:  Select/Where/Group/Order/Join / Others";
             this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // groupBox3
             // 
@@ -306,6 +340,17 @@
             this.button4.Text = "上一頁";
             this.button4.UseVisualStyleBackColor = false;
             // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(332, 144);
+            this.button12.Margin = new System.Windows.Forms.Padding(5);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(153, 42);
+            this.button12.TabIndex = 103;
+            this.button12.Text = "Orders ByYear";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
             // button9
             // 
             this.button9.BackColor = System.Drawing.SystemColors.Control;
@@ -329,6 +374,7 @@
             this.button10.TabIndex = 83;
             this.button10.Text = "尋找各分類之平均單價 (Inner Join)";
             this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button11
             // 
@@ -405,6 +451,7 @@
             this.button3.TabIndex = 3;
             this.button3.Text = "查詢具有指定屬性或名稱的檔案 (用 Let)";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button38
             // 
@@ -481,48 +528,6 @@
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
-            // listView1
-            // 
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(0, 0);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(811, 131);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // chart1
-            // 
-            chartArea5.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea5);
-            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend5.Name = "Legend1";
-            this.chart1.Legends.Add(legend5);
-            this.chart1.Location = new System.Drawing.Point(0, 0);
-            this.chart1.Name = "chart1";
-            series9.ChartArea = "ChartArea1";
-            series9.Legend = "Legend1";
-            series9.Name = "Count";
-            series10.ChartArea = "ChartArea1";
-            series10.Legend = "Legend1";
-            series10.Name = "Avg";
-            this.chart1.Series.Add(series9);
-            this.chart1.Series.Add(series10);
-            this.chart1.Size = new System.Drawing.Size(562, 528);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(332, 144);
-            this.button12.Margin = new System.Windows.Forms.Padding(5);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(153, 42);
-            this.button12.TabIndex = 103;
-            this.button12.Text = "Orders ByYear";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
-            // 
             // nwDataSet1
             // 
             this.nwDataSet1.DataSetName = "NWDataSet";
@@ -531,6 +536,14 @@
             // ordersTableAdapter1
             // 
             this.ordersTableAdapter1.ClearBeforeFill = true;
+            // 
+            // productsTableAdapter1
+            // 
+            this.productsTableAdapter1.ClearBeforeFill = true;
+            // 
+            // categoriesTableAdapter1
+            // 
+            this.categoriesTableAdapter1.ClearBeforeFill = true;
             // 
             // FrmLINQ_To_XXX
             // 
@@ -556,6 +569,7 @@
             this.splitContainer5.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
             this.splitContainer5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
@@ -569,7 +583,6 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nwDataSet1)).EndInit();
             this.ResumeLayout(false);
 
@@ -610,5 +623,7 @@
         private System.Windows.Forms.Button button12;
         private LinqLabs.NWDataSet nwDataSet1;
         private LinqLabs.NWDataSetTableAdapters.OrdersTableAdapter ordersTableAdapter1;
+        private LinqLabs.NWDataSetTableAdapters.ProductsTableAdapter productsTableAdapter1;
+        private LinqLabs.NWDataSetTableAdapters.CategoriesTableAdapter categoriesTableAdapter1;
     }
 }

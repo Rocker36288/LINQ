@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.button10 = new System.Windows.Forms.Button();
@@ -40,7 +40,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnYear = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.btnProductPrice = new System.Windows.Forms.Button();
             this.btnSize = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
@@ -74,7 +74,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(29, 254);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(210, 22);
+            this.label3.Size = new System.Drawing.Size(162, 17);
             this.label3.TabIndex = 149;
             this.label3.Text = "LINQ to Northwind Entity";
             // 
@@ -94,7 +94,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(24, 35);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(137, 22);
+            this.label4.Size = new System.Drawing.Size(106, 17);
             this.label4.TabIndex = 145;
             this.label4.Text = "LINQ - GroupBy";
             // 
@@ -136,7 +136,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(29, 115);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 22);
+            this.label1.Size = new System.Drawing.Size(111, 17);
             this.label1.TabIndex = 146;
             this.label1.Text = "LINQ to FileInfo[]";
             // 
@@ -153,17 +153,18 @@
             this.btnYear.UseVisualStyleBackColor = false;
             this.btnYear.Click += new System.EventHandler(this.btnYear_Click);
             // 
-            // button8
+            // btnProductPrice
             // 
-            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.button8.ForeColor = System.Drawing.Color.Black;
-            this.button8.Location = new System.Drawing.Point(30, 279);
-            this.button8.Margin = new System.Windows.Forms.Padding(4);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(268, 34);
-            this.button8.TabIndex = 141;
-            this.button8.Text = "NW Products 低中高 價產品 ";
-            this.button8.UseVisualStyleBackColor = false;
+            this.btnProductPrice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnProductPrice.ForeColor = System.Drawing.Color.Black;
+            this.btnProductPrice.Location = new System.Drawing.Point(30, 279);
+            this.btnProductPrice.Margin = new System.Windows.Forms.Padding(4);
+            this.btnProductPrice.Name = "btnProductPrice";
+            this.btnProductPrice.Size = new System.Drawing.Size(268, 34);
+            this.btnProductPrice.TabIndex = 141;
+            this.btnProductPrice.Text = "NW Products 低中高 價產品 ";
+            this.btnProductPrice.UseVisualStyleBackColor = false;
+            this.btnProductPrice.Click += new System.EventHandler(this.btnProductPrice_Click);
             // 
             // btnSize
             // 
@@ -204,7 +205,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(357, 33);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 22);
+            this.label2.Size = new System.Drawing.Size(39, 17);
             this.label2.TabIndex = 145;
             this.label2.Text = "Main";
             // 
@@ -213,7 +214,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(703, 28);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 22);
+            this.label5.Size = new System.Drawing.Size(49, 17);
             this.label5.TabIndex = 145;
             this.label5.Text = "Details";
             // 
@@ -229,16 +230,16 @@
             // 
             // chart1
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(360, 405);
             this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(300, 210);
             this.chart1.TabIndex = 152;
             this.chart1.Text = "chart1";
@@ -275,7 +276,7 @@
             // 
             // FrmHW4
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 638);
             this.Controls.Add(this.treeView1);
@@ -293,7 +294,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnYear);
-            this.Controls.Add(this.button8);
+            this.Controls.Add(this.btnProductPrice);
             this.Controls.Add(this.btnSize);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button15);
@@ -321,7 +322,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnYear;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btnProductPrice;
         private System.Windows.Forms.Button btnSize;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button15;

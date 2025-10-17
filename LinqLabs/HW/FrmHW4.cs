@@ -18,7 +18,6 @@ namespace LinqLabs.HW
 
             var flies = dir.GetFiles();
             this.dataGridView1.DataSource = flies;
-
         }
         System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(@"c:\windows");
 
@@ -56,6 +55,28 @@ namespace LinqLabs.HW
             foreach (var group in q)
             {
                 string header = $"{group.Year},({group.Count})";
+                TreeNode pNode = this.treeView1.Nodes.Add(header);
+                foreach (var item in group.MyGroup)
+                {
+                    pNode.Nodes.Add(item.ToString());
+                }
+            }
+        }
+
+        private void btnProductPrice_Click(object sender, EventArgs e)
+        {
+            productsTableAdapter1.Fill(nwDataSet1.Products);
+            
+            var q = from n in nwDataSet1.Products
+                    group n by n.UnitPrice < 30 ? "<30元" : n.UnitPrice < 60 ? "30~59元" : "60元以上" into g
+                    select new { Price = g.Key, Count = g.Count(), MyGroup = g };
+
+            this.dataGridView1.DataSource = nwDataSet1.Products;
+            this.dataGridView2.DataSource = q.ToList();
+
+            foreach (var group in q)
+            {
+                string header = $"{group.Price},({group.Count})";
                 TreeNode pNode = this.treeView1.Nodes.Add(header);
                 foreach (var item in group.MyGroup)
                 {

@@ -99,6 +99,7 @@
             this.button1.TabIndex = 118;
             this.button1.Text = "Test Entity Model";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button23
             // 
@@ -246,13 +247,14 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("新細明體", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button2.Location = new System.Drawing.Point(310, 82);
+            this.button2.Location = new System.Drawing.Point(413, 40);
             this.button2.Margin = new System.Windows.Forms.Padding(5);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(122, 42);
             this.button2.TabIndex = 93;
             this.button2.Text = "導覽屬性";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button21
             // 
@@ -387,7 +389,6 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Controls.Add(this.button21);
             this.groupBox3.Controls.Add(this.button20);
             this.groupBox3.Controls.Add(this.button16);
@@ -444,7 +445,7 @@
             // 
             this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 22;
+            this.listBox1.ItemHeight = 16;
             this.listBox1.Location = new System.Drawing.Point(0, 0);
             this.listBox1.Margin = new System.Windows.Forms.Padding(5);
             this.listBox1.Name = "listBox1";
@@ -490,6 +491,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
+            this.splitContainer1.Panel1.Controls.Add(this.button2);
             this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel1.Controls.Add(this.groupBox5);
@@ -524,7 +526,7 @@
             // 
             // FrmLinq_To_Entity
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1382, 856);
             this.Controls.Add(this.splitContainer1);

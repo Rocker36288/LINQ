@@ -17,6 +17,8 @@ namespace Starter
         public FrmLINQ_To_XXX()
         {
             InitializeComponent();
+            productsTableAdapter1.Fill(nwDataSet1.Products);
+            categoriesTableAdapter1.Fill(nwDataSet1.Categories);
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -207,6 +209,89 @@ namespace Starter
                     select new { Words = g.Key, Count = g.Count() };
 
             this.dataGridView1.DataSource = q.ToList();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DirectoryInfo dir = new DirectoryInfo(@"c:\windows");
+            FileInfo[] files = dir.GetFiles();
+
+            this.dataGridView1.DataSource = files;
+
+            var count = (from f in files
+                        let s = f.Extension
+                        where s ==".log"
+                        select f).Count();
+            MessageBox.Show("數量 =" +count);
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            var q = from p in nwDataSet1.Products
+                    where !p.IsUnitPriceNull()
+                    group p by p.CategoryID into g                    
+                    select new { CategoryID = g.Key, AvgPrice = g.Average(p => p.UnitPrice) };
+
+            this.dataGridView1 .DataSource = q.ToList();
+            //========================
+            var q2 = from c in nwDataSet1.Categories
+                     join p in nwDataSet1.Products
+                     on c.CategoryID equals p.CategoryID
+                     //select new {c.CategoryID,
+                     group p by c.CategoryName into g
+                     select new { CategoryName = g.Key, AvgPrice = g.Average(p => p.UnitPrice) };
+
+            this.dataGridView2.DataSource = q2.ToList();
+
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            int[] num1 = { 1, 2, 3, 4, 5, 6, 4, 5, };
+            int[] num2 = { 1, 2, 3, 7, 8, 9, 7, 8, };
+
+            //========================
+            IEnumerable<int> q;
+            q = num1.Intersect(num2);   //交集
+            q = num1.Union(num2);       //聯集
+            q = num1.Distinct();
+
+            //  切割運算子   Take / Skip
+            //========================
+            q = num1.Take(2);
+            q = num1.Skip(1).Take(2);
+
+            //  數量詞作業   Any / All / Contains
+            //========================
+            bool result;
+            result = num1.Any(n => n % 2 == 0);
+            result = num1.All(n => n > 0);
+            result = num1.Contains(5);
+
+            //  單一元素運算子
+            //  First / Last / Single / ElementAt
+            //  FirstOrDefault / LastOrDefault / SingleOrDefault / ElementAtOrDefault
+            //========================
+            int num;
+            num = num1.First();
+            num = num1.ElementAt(3);
+
+            //num = num1.ElementAt(13);         //exception
+            num = num1.ElementAtOrDefault(13);  //0
+
+            productsTableAdapter1.Fill(nwDataSet1.Products);        //測試有Fill跟沒Fill
+            //var product1 = nwDataSet1.Products.First();           //沒資料會exception
+            var product2 = nwDataSet1.Products.FirstOrDefault();    //沒資料會回傳null
+            if (product2 != null)
+            {
+                MessageBox.Show(product2.ProductName);
+            }
+            else
+            {
+                MessageBox.Show("null");
+            }
+
+            MessageBox.Show(nwDataSet1.Products.FirstOrDefault()?.ProductName);
         }
     }
 }
