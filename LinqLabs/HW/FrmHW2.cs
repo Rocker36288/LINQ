@@ -12,23 +12,23 @@ namespace LinqLabs.HW
 {
     public partial class FrmHW2 : Form
     {
+        NorthwindEntities db = new NorthwindEntities();
+
         public FrmHW2()
         {
             InitializeComponent();
-            ordersTableAdapter1.Fill(nwDataSet1.Orders);
-            order_DetailsTableAdapter1.Fill(nwDataSet1.Order_Details);
-            productsTableAdapter1.Fill(nwDataSet1.Products);
+            //ordersTableAdapter1.Fill(db.Orders);
+            //order_DetailsTableAdapter1.Fill(db.Order_Details);
 
-            List<int> q = (from p in nwDataSet1.Orders
-                           where !p.IsOrderDateNull()
-                           select p.OrderDate.Year).Distinct().ToList();
+            List<int> q = (from p in db.Orders
+                           select p.OrderDate.Value.Year).Distinct().OrderBy(n => n).ToList();
 
             this.comboBoxYear.DataSource = q;
 
         }
 
-        private IEnumerable<NWDataSet.OrdersRow> _ordersAll;
-        private IEnumerable<NWDataSet.OrdersRow> _orders;
+        private IEnumerable<Order> _ordersAll;
+        private IEnumerable<Order> _orders;
 
         private int _pages;
         private int _count;
@@ -55,7 +55,7 @@ namespace LinqLabs.HW
         public void ShowPages()
         {
             int totalpages = (int)Math.Ceiling((double)_ordersAll.Count() / _count);
-            
+
             if (_count <= 0)
             {
                 _orders = _ordersAll;
@@ -70,12 +70,12 @@ namespace LinqLabs.HW
 
             dataGridViewOrders.DataSource = _orders.ToList();
             ShowlabelResult();
-            
+
         }
 
         private void btnAllOrders_Click(object sender, EventArgs e)
         {
-            _ordersAll = nwDataSet1.Orders;
+            _ordersAll = db.Orders;
             SetRows();
             _pages = 0;
             ShowPages();
@@ -84,7 +84,7 @@ namespace LinqLabs.HW
         {
             int year = (int)comboBoxYear.SelectedValue;
 
-            _ordersAll = nwDataSet1.Orders.Where(p => p.OrderDate.Year == year);
+            _ordersAll = db.Orders.Where(p => p.OrderDate.Value.Year == year);
             SetRows();
             _pages = 0;
             ShowPages();
@@ -94,7 +94,7 @@ namespace LinqLabs.HW
         {
             int orderID = (int)this.dataGridViewOrders.CurrentRow.Cells[0].Value;
 
-            IEnumerable<NWDataSet.Order_DetailsRow> q = nwDataSet1.Order_Details.Where(p => p.OrderID == orderID);
+            IEnumerable<Order_Detail> q = db.Order_Details.Where(p => p.OrderID == orderID);
 
             dataGridViewOD.DataSource = q.ToList();
             ShowlabelResult();
