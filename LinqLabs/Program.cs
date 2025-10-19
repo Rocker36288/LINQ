@@ -31,9 +31,9 @@ namespace Starter
             //Application.Run(new FrmLINQ_To_XXX());
             //Application.Run(new FrmLinq_To_Entity());
 
-            Application.Run(new FrmHW1());
-            Application.Run(new FrmHW2());
-            Application.Run(new FrmHW3());
+            //Application.Run(new FrmHW1());
+            //Application.Run(new FrmHW2());
+            //Application.Run(new FrmHW3());
             Application.Run(new FrmHW4());
 
         }
